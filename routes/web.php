@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +21,6 @@ Route::get('/', function () {
 
 */
 
-$posts = [
-    ['title' => 'First post'],
-    ['title' => 'Second post'],
-    ['title' => 'Third post'],
-    ['title' => 'Fourth post'],
-];
 
 
 Route::view('/', 'welcome')->name('home');
@@ -40,19 +35,6 @@ Route::view('/whatever', 'contact')->name('contact');
 
 //Cambiamos el metodo por get porque ahora pasaremos datos y no sera solo de vista
 //PETICION
-Route::get('/blog', function (){
-
-    $posts = [
-        ['title' => 'First post'],
-        ['title' => 'Second post'],
-        ['title' => 'Third post'],
-        ['title' => 'Fourth post'],
-    ];
-
-    //RESPUESTA
-    //retorna la vista a la que manda y los datos que se enviaran a  a traves de ella
-    return view('blog',['posts' => $posts]);
-
-})->name('blog');
+Route::get('/blog', [PostController::class, 'index'])->name('blog');
 
 Route::view('/about', 'about')->name('about');

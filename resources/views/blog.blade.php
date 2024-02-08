@@ -6,7 +6,7 @@
 @section('content')
 
     <h1>BLOG</h1>
-    @dump($posts)
+{{--    @dump($posts)--}}
 
     @foreach($posts as $post)
         <h2>{{ $post['title'] }}</h2>
