@@ -9,7 +9,8 @@
 {{--    @dump($posts)--}}
 
     @foreach($posts as $post)
-        <h2>{{ $post['title'] }}</h2>
+{{--    se accede al contenido de la base de datos por title como si fuera una propiedad de la clase    --}}
+        <h2>{{ $post->title }}</h2>
     @endforeach
 
 @endsection

@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
     public function index()
     {
-        $posts = [
-            ['title' => 'First post'],
-            ['title' => 'Second post'],
-            ['title' => 'Third post'],
-            ['title' => 'Fourth post'],
-        ];
+        //conexion a la base de datos
+        $posts = DB::table('posts')->get();
 
         //RESPUESTA
         //retorna la vista a la que manda y los datos que se enviaran a  a traves de ella
