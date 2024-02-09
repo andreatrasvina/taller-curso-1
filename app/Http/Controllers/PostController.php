@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-class PostController
+use Illuminate\Http\Request;
+
+class PostController extends Controller
 {
-    public function index() //__invoke() - Forma de invocar un controlador, sirve si hace una sola accion o un metodo
+    public function index()
     {
         $posts = [
             ['title' => 'First post'],
@@ -16,6 +18,6 @@ class PostController
         //RESPUESTA
         //retorna la vista a la que manda y los datos que se enviaran a  a traves de ella
         return view('blog',['posts' => $posts]);
-    }
 
+    }
 }
