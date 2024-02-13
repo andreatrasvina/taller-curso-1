@@ -15,7 +15,11 @@ class PostController extends Controller
 
         //RESPUESTA
         //retorna la vista a la que manda y los datos que se enviaran a  a traves de ella
-        return view('blog',['posts' => $posts]);
+        return view('posts.index',['posts' => $posts]);
 
+    }
+
+    public function show(Post $post){
+        return view('posts.show', ['post' => $post]);
     }
 }

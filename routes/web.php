@@ -35,6 +35,9 @@ Route::view('/whatever', 'contact')->name('contact');
 
 //Cambiamos el metodo por get porque ahora pasaremos datos y no sera solo de vista
 //PETICION
-Route::get('/blog', [PostController::class, 'index'])->name('blog');
+Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
+
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
+
 
 Route::view('/about', 'about')->name('about');

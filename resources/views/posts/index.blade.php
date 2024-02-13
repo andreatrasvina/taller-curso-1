@@ -10,7 +10,9 @@
 
     @foreach($posts as $post)
 {{--    se accede al contenido de la base de datos por title como si fuera una propiedad de la clase    --}}
-        <h2>{{ $post->title }}</h2>
+        <h2>
+            <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+        </h2>
     @endforeach
 
 @endsection
