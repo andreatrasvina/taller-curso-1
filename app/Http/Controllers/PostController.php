@@ -30,16 +30,18 @@ class PostController extends Controller
     public function store(Request $request){
         //return $request->input('title');
 
-        $request->validate([
+        $validated = $request->validate([
             'title' => ['required', 'min:4'],
             'body' => ['required'],
 
         ]);
 
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
+//        $post = new Post;
+//        $post->title = $request->input('title');
+//        $post->body = $request->input('body');
+//        $post->save();
+
+        Post::create($validated);
 
         session()->flash('status', 'Post created!');
 
@@ -53,15 +55,18 @@ class PostController extends Controller
     }
 
     public function update(Request $request, Post $post){
-        $request->validate([
+
+        $validated = $request->validate([
             'title' => ['required', 'min:4'],
             'body' => ['required'],
 
         ]);
+//
+//        $post->title = $request->input('title');
+//        $post->body = $request->input('body');
+//        $post->save();
 
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
+        $post->update($validated);
 
         session()->flash('status', 'Post updated!');
 
