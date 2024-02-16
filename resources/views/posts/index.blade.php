@@ -7,6 +7,7 @@
 
     <h1>BLOG</h1>
 {{--    @dump($posts)--}}
+    <a href="{{ route('posts.create') }}">Create new post</a>
 
     @foreach($posts as $post)
 {{--    se accede al contenido de la base de datos por title como si fuera una propiedad de la clase    --}}
