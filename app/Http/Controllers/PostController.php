@@ -27,8 +27,17 @@ class PostController extends Controller
         return view('posts.create');
     }
 
-    public function store(){
-        return 'hola';
+    public function store(Request $request){
+        //return $request->input('title');
+
+        $post = new Post;
+        $post->title = $request->input('title');
+        $post->body = $request->input('body');
+        $post->save();
+
+        //return redirect()->route('posts.index');
+        return to_route('posts.index');
+
     }
 
 }
