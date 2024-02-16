@@ -31,8 +31,9 @@ class PostController extends Controller
         //return $request->input('title');
 
         $request->validate([
-            'title' => ['required'],
-            'body' => ['required']
+            'title' => ['required', 'min:4'],
+            'body' => ['required'],
+
         ]);
 
         $post = new Post;
