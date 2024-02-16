@@ -14,6 +14,12 @@
 
 <x-layouts.nav/>
 
+@if(session('status'))
+    <div class="status">
+        {{ session('status') }}
+    </div>
+@endif
+
 {{ $slot }}
 
 </body>

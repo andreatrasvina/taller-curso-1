@@ -5,6 +5,7 @@
 
 @section('content')
 
+
     <h1>BLOG</h1>
 {{--    @dump($posts)--}}
     <a href="{{ route('posts.create') }}">Create new post</a>
