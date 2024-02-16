@@ -12,9 +12,12 @@
 
     @foreach($posts as $post)
 {{--    se accede al contenido de la base de datos por title como si fuera una propiedad de la clase    --}}
-        <h2>
-            <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
-        </h2>
+        <div style="display: flex; align-items: baseline">
+            <h2>
+                <a href="{{ route('posts.show', $post) }}">{{ $post->title }}</a>
+            </h2> &nbsp;
+            <a href="{{ route('posts.edit', $post) }}">Edit</a>
+        </div>
     @endforeach
 
 @endsection
