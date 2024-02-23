@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\SavePostRequest;
 
 class PostController extends Controller
 {
@@ -27,26 +28,22 @@ class PostController extends Controller
         return view('posts.create', ['post' => new Post]);
     }
 
-    public function store(Request $request){
+    public function store(SavePostRequest $request){
         //return $request->input('title');
-
-        $validated = $request->validate([
-            'title' => ['required', 'min:4'],
-            'body' => ['required'],
-
-        ]);
 
 //        $post = new Post;
 //        $post->title = $request->input('title');
 //        $post->body = $request->input('body');
 //        $post->save();
 
-        Post::create($validated);
+        Post::create($request->validated());
 
-        session()->flash('status', 'Post created!');
+        //para eliminar esta linea se agrega en el return '->with('status', 'Post created!')'
+        //session()->flash('status', 'Post created!');
 
         //return redirect()->route('posts.index');
-        return to_route('posts.index');
+
+        return to_route('posts.index')->with('status', 'Post created!');
 
     }
 
@@ -54,24 +51,25 @@ class PostController extends Controller
         return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(Request $request, Post $post){
+    public function update(SavePostRequest $request, Post $post){
 
-        $validated = $request->validate([
-            'title' => ['required', 'min:4'],
-            'body' => ['required'],
-
-        ]);
+//        $validated = $request->validate([
+//            'title' => ['required', 'min:4'],
+//            'body' => ['required'],
+//
+//        ]);
 //
 //        $post->title = $request->input('title');
 //        $post->body = $request->input('body');
 //        $post->save();
 
-        $post->update($validated);
+//        $post->update($validated);
 
-        session()->flash('status', 'Post updated!');
+        $post->update($request->validated());
+
 
         //return redirect()->route('posts.index');
-        return to_route('posts.show', $post);
+        return to_route('posts.show', $post)->with('status', 'Post updated!');
     }
 
 }
