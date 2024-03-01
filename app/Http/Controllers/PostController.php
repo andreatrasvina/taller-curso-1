@@ -72,4 +72,5 @@ class PostController extends Controller
         return to_route('posts.show', $post)->with('status', 'Post updated!');
     }
 
+
 }

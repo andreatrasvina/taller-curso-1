@@ -45,5 +45,4 @@ Route::get('/blog/{post}/edit', [PostController::class, 'edit'])->name('posts.ed
 Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.update');
 
 
-
 Route::view('/about', 'about')->name('about');
