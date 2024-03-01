@@ -1,9 +1,6 @@
-@extends('layouts.app')
-
-@section('title', 'Blog')
-@section('meta-description', 'Blog meta description')
-
-@section('content')
+<x-layouts.app
+    title="Blog"
+    meta-description="Blog meta description">
 
 
     <h1>BLOG</h1>
@@ -20,7 +17,8 @@
         </div>
     @endforeach
 
-@endsection
+</x-layouts.app>
+
 
 
 {{--<x-layouts.app--}}

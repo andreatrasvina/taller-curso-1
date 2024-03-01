@@ -1,14 +1,12 @@
-<!-- hace referencia al nombre asignado en las rutas
-    Se recomienda siempre asignar un nombre a las rutas y referenciarlas
-    con el en vez de usar la ruta -->
+<nav class="bg-slate-800 p-5">
+    <div class="container mx-auto flex items-center justify-center">
 
-<ul>
-    <!-- sintaxis de PHP
-    <li><a href="<?= route('home') ?>">EJEMPLO EN LA SINTAXIS CON PHP</a></li>
-    -->
-    <!-- sintaxis de blade -->
-    <li><a href="{{ route('home') }}">Home</a></li>
-    <li><a href="{{ route('posts.index') }}">Blog</a></li>
-    <li><a href="{{ route('about') }}">About</a></li>
-    <li><a href="{{ route('contact') }}">Contact</a></li>
-</ul>
+        <!-- Navegación -->
+        <div class="space-x-20">
+            <a href="{{ route('home') }}" class="text-white font-bold text-lg {{ request()->routeIs('home') ? 'text-white' : 'text-slate-400' }} hover:text-white">Home</a>
+            <a href="{{ route('posts.index') }}" class="text-white font-bold text-lg {{ request()->routeIs('posts.*') ? 'text-white' : 'text-slate-400' }} hover:text-white">Blog</a>
+            <a href="{{ route('about') }}" class="text-white font-bold text-lg {{ request()->routeIs('about') ? 'text-white' : 'text-slate-400' }} hover:text-white">Acerca de</a>
+            <a href="{{ route('contact') }}" class="text-white font-bold text-lg {{ request()->routeIs('contact') ? 'text-white' : 'text-slate-400' }} hover:text-white">Contacto</a>
+        </div>
+    </div>
+</nav>
