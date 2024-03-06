@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AunthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
@@ -48,10 +49,9 @@ Route::patch('/blog/{post}', [PostController::class, 'update'])->name('posts.upd
 
 Route::view('/about', 'about')->name('about');
 
-Route::get('/login', function () {
-    return 'Login page';
-})->name('login');
+Route::view('/login', 'auth.login')->name('login');
+Route::post('/login', [AunthenticatedSessionController::class, 'store']);
+
 
 Route::view('/register', 'auth.register')->name('register');
-
 Route::post('/register', [RegisteredUserController::class, 'store']);

@@ -9,7 +9,15 @@
             <a href="{{ route('contact') }}" class="font-bold text-lg {{ request()->routeIs('contact') ? 'text-sky-600' : 'text-slate-400' }} hover:text-sky-600">Contacto</a>
         </div>
         <div class="ml-auto">
-            <a href="{{ route('register') }}" class="font-bold text-lg {{ request()->routeIs('register') ? 'text-sky-600' : 'text-slate-400' }} hover:text-sky-600">Registro</a>
+            @guest
+                <a href="{{ route('register') }}" class="font-bold text-lg {{ request()->routeIs('register') ? 'text-sky-600' : 'text-slate-400' }} hover:text-sky-600">Register</a>
+                <a href="{{ route('login') }}" class="font-bold text-lg {{ request()->routeIs('login') ? 'text-sky-600' : 'text-slate-400' }} hover:text-sky-600">Login</a>
+{{--            @else--}}
+{{--                <form action="{{ route('logout') }}" method="POST">--}}
+{{--                    @csrf--}}
+{{--                    <button>Logout</button>--}}
+{{--                </form>--}}
+            @endguest
         </div>
     </div>
 </nav>
