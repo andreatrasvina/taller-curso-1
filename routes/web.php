@@ -52,6 +52,8 @@ Route::view('/about', 'about')->name('about');
 Route::view('/login', 'auth.login')->name('login');
 Route::post('/login', [AunthenticatedSessionController::class, 'store']);
 
+Route::post('/logout', [AunthenticatedSessionController::class, 'destroy'])->name('logout');
+
 
 Route::view('/register', 'auth.register')->name('register');
 Route::post('/register', [RegisteredUserController::class, 'store']);
